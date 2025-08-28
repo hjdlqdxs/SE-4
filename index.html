@@ -1,84 +1,93 @@
 <!doctype html>
-<html lang="zh-CN" translate="no">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 页面标题 -->
   <title>SE-4 独立网页</title>
+  <!-- 图标（保持原路径，确保文件存在） -->
+  <link rel="icon" href="mb-proto2/vis/modao/favicon_home_screen_new.ico">
+  <link rel="apple-touch-icon-precomposed" href="mb-proto2/vis/modao/favicon_home_screen_new.ico">
 
-  <!-- 原有 favicon -->
-  <link rel="icon" id="icon" href="mb-proto2/vis/modao/favicon_home_screen_new.ico">
-  <link rel="apple-touch-icon-precomposed" id="apple-touch-icon" href="mb-proto2/vis/modao/favicon_home_screen_new.ico">
-
-  <!-- 原有 CSS -->
+  <!-- 保留必要的 CSS（需确保 mb-proto2 内样式可用，或替换为本地/CDN 资源） -->
   <link rel="stylesheet" href="mb-proto2/icons/fa5/css/fa5.css">
   <link href="mb-proto2/5.3nfpa-vendor-77fb484d3db729c9d7f6.css" rel="stylesheet">
   <link href="mb-proto2/preview-html-zip-f0d9de76208db26b1137.css" rel="stylesheet">
 
-  <!-- 原有 JS & 配置（全部保留） -->
-  <script>
-    if (function() {
-      try {
-        eval([
-          'for (const a of []) {}',
-          'let b = { fetch, Proxy }',
-          'let c = (async () => {})()',
-          'let { d0, ...d1 } = { ...b }'
-        ].join(';'))
-      } catch (e) {
-        console.log('!!', e);
-        return true
-      }
-    }()) location.href = "https://modao.cc/browser-update"
-  </script>
+  <!-- 清理墨刀专属跳转、统计代码 -->
+  <!-- 仅保留核心 JS（若依赖可精简，此处保留基础加载） -->
+  <script src="mb-static/2308/core-js-3.32.1/modern.js"></script>
   <script src="mb-static/2410/echarts-map/loadMap.js"></script>
   <script src="env/2203.js"></script>
   <script>
+    // 禁用墨刀追踪（确保脱离平台依赖）
+    window.ENV = window.ENV || {};
     window.ENV.NO_SENTRY = true;
     window.ENV.NO_TRACK = true;
   </script>
-  <script src="mb-static/2308/core-js-3.32.1/modern.js"></script>
+
+  <!-- 延迟加载 JS（确保路径正确） -->
   <script defer src="mb-proto2/5.3nfpa-vendor-be6835a4db0efc070140.js"></script>
-  <script defer src="mb-proto2/4.6cqwy-vendor-cdac01061c0c.js"></script>
+  <script defer src="mb-proto2/4.6cqwy-vendor-cdac01061c00b9641c0c.js"></script>
   <script defer src="mb-proto2/4.n9fxu-vendor-33bf84a7a123f8b08670.js"></script>
   <script defer src="mb-proto2/3.h4vam-vendor-dfb45b6783b6af450a92.js"></script>
   <script defer src="mb-proto2/preview-html-zip-43b70647a9df331a8fc0.js"></script>
 
-  <!-- 自定义按钮样式 -->
+  <!-- 自定义样式（可选，用于美化跳转按钮） -->
   <style>
-    .btn-thanks {
-      position: fixed;
-      top: 15px;
-      right: 15px;
-      z-index: 9999;
-      padding: 8px 16px;
+    /* 按钮基础样式 */
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 10px;
       background: #4CAF50;
-      color: #fff;
-      border-radius: 6px;
+      color: white;
       text-decoration: none;
-      font-size: 14px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      border-radius: 5px;
       transition: background 0.3s;
     }
-    .btn-thanks:hover {
+    .btn:hover {
       background: #45a049;
+    }
+    /* 页面容器（确保内容居中） */
+    #workspace {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
     }
   </style>
 </head>
+
 <body>
-  <!-- 原有工作区 -->
-  <div id="workspace"></div>
+  <!-- 页面主容器（替换墨刀默认容器，重构内容） -->
+  <div id="workspace">
+    <!-- 假设这是导航/功能区，添加“感恩寄语”跳转 -->
+    <h1>SE-4 项目展示</h1>
+    <p>这里是脱离墨刀依赖的独立网页内容，可自由扩展 HTML 结构。</p>
 
-  <!-- 新增感恩寄语按钮 -->
-  <a href="thanks.html" class="btn-thanks">感恩寄语</a>
+    <!-- 关键：“感恩寄语”跳转按钮 -->
+    <a class="btn" href="thanks.html">感恩寄语</a>
 
-  <!-- 原有脚本 -->
-  <script>HZv5_PREVIEW_MODE="device"</script>
+    <!-- 原墨刀内容容器（若需保留原型内容，确保 extra 数据加载后渲染正常） -->
+    <div id="mockitt-content">
+      <!-- 墨刀原型内容会通过 JS 动态渲染到这里（若依赖仍有效） -->
+    </div>
+  </div>
+
+  <!-- 加载墨刀数据（若需保留原型交互，确保 extra 路径正确） -->
   <script src="extra/data.0.js"></script>
   <script src="extra/data.2.js"></script>
   <script src="extra/data.1.js"></script>
+
+  <!-- 清理墨刀预览模式代码（或按需调整） -->
+  <script>
+    // 移除墨刀专属环境标记（若有冲突）
+    delete window.HZv5_PREVIEW_MODE;
+    // 确保页面加载后初始化（按需调整）
+    window.onload = function() {
+      // 若墨刀原型需手动初始化，可补充逻辑
+      // 例如：initMockittContent();
+    };
+  </script>
 </body>
 </html>
