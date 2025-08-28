@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>蒲公英的心声 - 感恩网页</title>
+  <style>
+    body {
+      font-family: "Microsoft YaHei", sans-serif;
+      background: linear-gradient(135deg, #ffecd2, #fcb69f);
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      color: #d35400;
+      font-size: 36px;
+    }
+    #quote-box {
+      margin: 30px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 15px;
+      width: 60%;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      font-size: 20px;
+      color: #333;
+      min-height: 60px;
+      transition: all 0.5s ease;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background: #e67e22;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #d35400;
+    }
+    #messages {
+      margin-top: 20px;
+      text-align: left;
+      background: rgba(255,255,255,0.7);
+      padding: 15px;
+      border-radius: 10px;
+      max-width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌸 感恩有你，砥砺前行 🌸</h1>
+  <div id="quote-box">点击按钮，获取一条感恩寄语吧！</div>
+  <button onclick="showRandomQuote()">✨ 随机寄语</button>
+  
+  <h2>💌 留下你的感恩寄语</h2>
+  <input type="text" id="inputMsg" placeholder="写下你想感谢的话..." style="padding:8px;width:60%;border-radius:6px;border:1px solid #ccc;">
+  <button onclick="addMessage()">提交</button>
+
+  <div id="messages">
+    <h3>📜 我的感恩留言：</h3>
+    <ul id="msgList"></ul>
+  </div>
+
+  <script>
+    // 预设的感恩寄语
+    const quotes = [
+      "感谢父母无私的爱与支持。",
+      "感恩师长的教诲与关怀。",
+      "感谢朋友一路相伴，带来欢笑与温暖。",
+      "感恩挫折，让我更加坚强。",
+      "感谢团队的协作，让我不断成长。",
+      "感恩生活中的点点滴滴，让我更加珍惜。"
+    ];
+
+    // 随机显示寄语
+    function showRandomQuote() {
+      const box = document.getElementById("quote-box");
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      box.style.opacity = 0;
+      setTimeout(() => {
+        box.innerText = quotes[randomIndex];
+        box.style.opacity = 1;
+      }, 500);
+    }
+
+    // 本地存储留言
+    function addMessage() {
+      const input = document.getElementById("inputMsg");
+      const msg = input.value.trim();
+      if(msg === "") return;
+      let messages = JSON.parse(localStorage.getItem("messages")) || [];
+      messages.push(msg);
+      localStorage.setItem("messages", JSON.stringify(messages));
+      input.value = "";
+      loadMessages();
+    }
+
+    // 加载留言
+    function loadMessages() {
+      let messages = JSON.parse(localStorage.getItem("messages")) || [];
+      const list = document.getElementById("msgList");
+      list.innerHTML = "";
+      messages.forEach(m => {
+        const li = document.createElement("li");
+        li.innerText = m;
+        list.appendChild(li);
+      });
+    }
+
+    // 页面加载时显示留言
+    window.onload = loadMessages;
+  </script>
+</body>
+</html>
