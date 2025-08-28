@@ -9,43 +9,71 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SE-4</title> 
     
-    <!-- 1. 图标路径：直接用根目录的 mb-proto2 文件夹 -->
+    <!-- 图标路径 -->
     <link rel="icon" id="icon" href="mb-proto2/vis/modao/favicon_home_screen_new.ico">
     <link rel="apple-touch-icon-precomposed" id="apple-touch-icon" href="mb-proto2/vis/modao/favicon_home_screen_new.ico">
     
-    <!-- 2. CSS 资源：路径直接指向 mb-proto2 和 mb-static -->
+    <!-- CSS 资源 -->
     <link rel="stylesheet" href="mb-proto2/icons/fa5/css/fa5.css">
     <link href="mb-proto2/5.3nfpa-vendor-77fb484d3db729c9d7f6.css" rel="stylesheet">
     <link href="mb-proto2/preview-html-zip-f0d9de76208db26b1137.css" rel="stylesheet">
     
-    <!-- 3. 清理墨刀专属跳转代码（避免跳转到墨刀官网） -->
-    
-    <!-- 4. JS 资源：路径直接指向 mb-static、mb-proto2 -->
+    <!-- JS 资源 -->
     <script src="mb-static/2410/echarts-map/loadMap.js"></script>
     <script src="env/2203.js"></script>
     <script>window.ENV.NO_SENTRY = true; window.ENV.NO_TRACK = true</script>
     
-    <!-- 5. 清理墨刀品牌相关代码（避免不必要的图标切换） -->
-    
-    <!-- 6. 清理谷歌统计代码（非必要，且可能加载失败） -->
-    
     <script src="mb-static/2308/core-js-3.32.1/modern.js"></script>
-    <!-- 7. 修正 SA 统计脚本路径（若不需要可删除） -->
     <script>ENV.NO_TRACK || document.write('<script src="mb-static/2502/sa-1.26.18/_.js"><'+'/script>')</script>
     
-    <!-- 8. 延迟加载 JS：路径直接指向 mb-proto2 -->
+    <!-- 延迟加载 JS -->
     <script defer="defer" src="mb-proto2/5.3nfpa-vendor-cbc1f29ae14e11fd8f11.js"></script>
     <script defer="defer" src="mb-proto2/4.6cqwy-vendor-cdac01061c00b9641c0c.js"></script>
     <script defer="defer" src="mb-proto2/4.n9fxu-vendor-efedc43345e0a575bad0.js"></script>
     <script defer="defer" src="mb-proto2/3.h4vam-vendor-6229acc52930c16112f8.js"></script>
     <script defer="defer" src="mb-proto2/preview-html-zip-43b70647a9df331a8fc0.js"></script>
-    
-    <!-- 9. 清理 GTM 统计代码（非必要） -->
 </head>
 <body>
-    <div id="workspace"></div>
-    <script>HZv5_PREVIEW_MODE="device"</script>
-    <!-- 10. extra 文件夹 JS：路径直接指向根目录的 extra -->
+    <div id="workspace">
+        <!-- 新增表单元素 -->
+        <div class="form-container" style="max-width: 500px; margin: 2rem auto; padding: 2rem; border: 1px solid #eee; border-radius: 8px;">
+            <h2 style="text-align: center; margin-bottom: 1.5rem;">提交表单</h2>
+            <form id="submitForm" onsubmit="handleSubmit(event)">
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; margin-bottom: 0.5rem;">姓名</label>
+                    <input type="text" name="name" required style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; margin-bottom: 0.5rem;">邮箱</label>
+                    <input type="email" name="email" required style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; margin-bottom: 0.5rem;">留言</label>
+                    <textarea name="message" rows="4" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;"></textarea>
+                </div>
+                <button type="submit" style="width: 100%; padding: 0.7rem; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">提交</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        HZv5_PREVIEW_MODE = "device";
+        
+        // 表单提交处理函数
+        function handleSubmit(event) {
+            event.preventDefault(); // 阻止表单默认提交行为
+            
+            // 这里可以添加表单验证或数据处理逻辑
+            const formData = new FormData(event.target);
+            const formValues = Object.fromEntries(formData.entries());
+            console.log("表单数据:", formValues);
+            
+            // 跳转到感谢页面
+            window.location.href = 'thanks.html';
+        }
+    </script>
+
+    <!-- extra 文件夹 JS -->
     <script src="extra/data.0.js"></script>
     <script src="extra/data.2.js"></script>
     <script src="extra/data.1.js"></script>
