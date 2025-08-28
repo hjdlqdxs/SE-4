@@ -9,21 +9,34 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>SE-4 独立网页</title>
 
-  <!-- favicon -->
-  <link rel="icon" href="mb-proto2/vis/modao/favicon_home_screen_new.ico">
-  <link rel="apple-touch-icon-precomposed" href="mb-proto2/vis/modao/favicon_home_screen_new.ico">
+  <!-- 原有 favicon -->
+  <link rel="icon" id="icon" href="mb-proto2/vis/modao/favicon_home_screen_new.ico">
+  <link rel="apple-touch-icon-precomposed" id="apple-touch-icon" href="mb-proto2/vis/modao/favicon_home_screen_new.ico">
 
-  <!-- 样式 -->
+  <!-- 原有 CSS -->
   <link rel="stylesheet" href="mb-proto2/icons/fa5/css/fa5.css">
   <link href="mb-proto2/5.3nfpa-vendor-77fb484d3db729c9d7f6.css" rel="stylesheet">
   <link href="mb-proto2/preview-html-zip-f0d9de76208db26b1137.css" rel="stylesheet">
 
-  <!-- 脚本 -->
+  <!-- 原有 JS & 配置（全部保留） -->
+  <script>
+    if (function() {
+      try {
+        eval([
+          'for (const a of []) {}',
+          'let b = { fetch, Proxy }',
+          'let c = (async () => {})()',
+          'let { d0, ...d1 } = { ...b }'
+        ].join(';'))
+      } catch (e) {
+        console.log('!!', e);
+        return true
+      }
+    }()) location.href = "https://modao.cc/browser-update"
+  </script>
   <script src="mb-static/2410/echarts-map/loadMap.js"></script>
   <script src="env/2203.js"></script>
   <script>
-    /* 禁用埋点与追踪 */
-    window.ENV = window.ENV || {};
     window.ENV.NO_SENTRY = true;
     window.ENV.NO_TRACK = true;
   </script>
@@ -56,16 +69,14 @@
   </style>
 </head>
 <body>
-  <!-- 页面主容器 -->
+  <!-- 原有工作区 -->
   <div id="workspace"></div>
 
-  <!-- 感恩寄语按钮 -->
+  <!-- 新增感恩寄语按钮 -->
   <a href="thanks.html" class="btn-thanks">感恩寄语</a>
 
-  <!-- 页面初始化 -->
-  <script>
-    window.HZv5_PREVIEW_MODE = "device";
-  </script>
+  <!-- 原有脚本 -->
+  <script>HZv5_PREVIEW_MODE="device"</script>
   <script src="extra/data.0.js"></script>
   <script src="extra/data.2.js"></script>
   <script src="extra/data.1.js"></script>
